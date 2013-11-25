@@ -1,0 +1,36 @@
+Enter file contents here
+#include <iostream>
+using namespace std;
+#include <string>
+#include <vector>
+/**
+ * Definition for binary tree*/
+ struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+  };
+ 
+class Solution {
+public:
+       void postorder(TreeNode *r, vector<int> &p){
+         if(r!=NULL){
+            postorder(r->left,p);
+            postorder(r->right,p);
+            p.push_back(r->val);         
+         }
+         
+    
+    }
+    vector<int> postorderTraversal(TreeNode *root) {
+        // IMPORTANT: Please reset any member data you declared, as
+        // the same Solution instance will be reused for each test case.
+        vector<int> path;
+        postorder(root, path);
+        return path;
+    }
+    
+    
+    
+};
